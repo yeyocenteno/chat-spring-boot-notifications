@@ -6,10 +6,9 @@ spring:
     name: opselling_operative_plane
 
   datasource:
-    # Overall Connection Properties
-    url: ${DATASOURCE_URL}
-    username: ${DATASOURCE_USERNAME}
-    password: ${DATASOURCE_PASSWORD}
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5433/chat_db}
+    username: ${DATASOURCE_USERNAME:postgres}
+    password: ${DATASOURCE_PASSWORD:DSC2003p}
     driver-class-name: ${DATASOURCE_DRIVER_CLASS_NAME:org.postgresql.Driver}
 
     hikari:
@@ -40,3 +39,23 @@ spring:
         # JDBC & Batch Settings
         jdbc:
           time_zone: UTC
+
+  # Configuración de Correo (Integrada correctamente bajo 'spring')
+  mail:
+    host: smtp.gmail.com
+    port: 465
+    username: "pracdsc@gmail.com"
+    password: "ykzx rslr zspv orpo"
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+          starttls:
+            enable: false
+
+# Configuración de Firebase (Va fuera de 'spring' porque es una propiedad personalizada)
+firebase:
+  config:
+    path: "classpath:serviceAccountKey.json"

@@ -35,3 +35,5 @@ build/
 ### Env ###
 .env*
 
+
+src/main/resources/serviceAccountKey.json
